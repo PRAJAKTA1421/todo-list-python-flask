@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dark To-Do List</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>📝 To-Do Dashboard</h2>
+
+      <div class="progress-box">
+        <p>Progress: {{ completed }} / {{ total }}</p>
+        <div class="progress">
+          <div class="progress-fill" style="width: {{ progress }}%"></div>
+        </div>
+      </div>
+
+      <form method="POST" class="task-form">
+        <input type="text" name="title" placeholder="Task title" required />
+
+        <input type="text" name="category" placeholder="Category" required />
+
+        <input type="date" name="due_date" required />
+
+        <select name="priority">
+          <option>Low</option>
+          <option>Medium</option>
+          <option>High</option>
+        </select>
+
+        <button>Add Task</button>
+      </form>
+
+      <table>
+        <tr>
+          <th>Task</th>
+          <th>Category</th>
+          <th>Due</th>
+          <th>Priority</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+
+        {% for t in tasks %}
+        <tr>
+          <td>{{ t[1] }}</td>
+          <td>{{ t[2] }}</td>
+          <td>{{ t[3] }}</td>
+          <td class="priority {{ t[4] }}">{{ t[4] }}</td>
+          <td>{{ t[5] }}</td>
+          <td>
+            <a href="/complete/{{ t[0] }}">✔</a>
+            <a href="/delete/{{ t[0] }}">❌</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </body>
+</html>
