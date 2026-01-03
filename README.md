@@ -32,4 +32,20 @@ This project demonstrates strong fundamentals of **backend development, database
 ---
 
 ## 📂 Project Structure
+todo-list-python-flask/
+│
+├── app.py
+├── create_db.py
+├── todo.db
+│
+├── templates/
+│ └── index.html
+│
+└── static/
+└── style.css
 
+👤 Author
+
+Prajakta Patil
+B.Tech Computer Science & Data Science Student
+Aspiring Python & Data Analyst
